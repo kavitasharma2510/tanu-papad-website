@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanu Papad Admin Panel</title>
+  <style>
+    :root{--terracotta:#a74428;--deep:#4a2418;--saffron:#e89a2f;--ivory:#fffaf1;--teal:#0f6f72;--brown:#6d4330;--red:#b3261e;--shadow:0 18px 40px rgba(74,36,24,.14)}
+    *{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;background:var(--ivory);color:var(--deep)}button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}
+    .login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at top right,rgba(15,111,114,.16),transparent 28%),linear-gradient(135deg,#fffaf1,#ffe7bc)}
+    .login-card{width:min(440px,100%);background:#fff;border:1px solid rgba(167,68,40,.14);border-radius:30px;padding:28px;box-shadow:var(--shadow);display:grid;gap:14px}.login-card img{width:120px;height:120px;object-fit:contain;justify-self:center}.login-card span,.top span{color:var(--teal);font-weight:900;text-transform:uppercase;letter-spacing:.06em;font-size:12px}.login-card h1{font-size:34px}.login-card p,.login-card small{color:var(--brown);line-height:1.55;font-weight:650}input,select{width:100%;padding:13px 14px;border:1px solid #ead4bd;border-radius:14px;background:#fffdf8;outline:0}input:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(15,111,114,.08)}.primary-btn,.top button,.product-form button,.action-btn,#logoutBtn{padding:12px 18px;border-radius:999px;font-weight:900;background:var(--terracotta);color:white;box-shadow:0 8px 18px rgba(167,68,40,.18)}.error{display:none;background:#fff2f1;color:var(--red);border:1px solid #ffd0cb;padding:12px;border-radius:14px;font-weight:800}.error.show{display:block}
+    .app{min-height:100vh;display:grid;grid-template-columns:280px 1fr}.sidebar{position:sticky;top:0;height:100vh;background:var(--deep);color:white;padding:20px;display:flex;flex-direction:column;gap:22px}.brand{color:white;text-decoration:none;display:grid;gap:4px}.brand img{width:86px;height:86px;object-fit:contain;background:white;border-radius:22px;padding:4px}.brand b{font-size:24px}.brand small{color:#ffe0ad;font-weight:800}.sidebar nav{display:grid;gap:9px}.sidebar nav a{color:#fff5df;text-decoration:none;padding:13px 14px;border-radius:16px;font-weight:900}.sidebar nav a.active,.sidebar nav a:hover{background:rgba(255,255,255,.13)}#logoutBtn{margin-top:auto;background:var(--teal)}.main{padding:24px;overflow-x:hidden}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}.top h1{font-size:clamp(32px,4vw,52px)}.top button{background:var(--teal)}.tab{display:none}.tab.active{display:block}.stats{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:16px;margin-bottom:18px}.card,.panel,.table-wrap,.list-card{background:#fff;border:1px solid rgba(167,68,40,.12);border-radius:24px;padding:18px;box-shadow:var(--shadow)}.card span{color:var(--brown);font-weight:800}.card strong{display:block;font-size:32px;margin-top:6px;color:var(--terracotta)}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel h2,.panel-head h2{font-size:26px;margin-bottom:8px}.panel p,.panel-head p,ol{color:var(--brown);line-height:1.55;font-weight:650}.panel-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:16px}.panel-head input{max-width:360px}.table-wrap{overflow-x:auto;padding:0}table{width:100%;border-collapse:collapse;min-width:860px}th,td{padding:15px;text-align:left;border-bottom:1px solid #f0dcca;vertical-align:top}th{background:#fff3dd;color:var(--deep);font-size:13px;text-transform:uppercase;letter-spacing:.05em}td{color:var(--brown);font-weight:700}.status-select{min-width:170px;padding:9px 12px;border-radius:12px}.action-btn{padding:8px 12px;box-shadow:none;background:var(--teal);margin:2px}.action-btn.red{background:var(--red)}.order-id{color:var(--terracotta);font-weight:900}.product-form{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;background:#fff;padding:16px;border-radius:24px;border:1px solid rgba(167,68,40,.12);box-shadow:var(--shadow)}.list-card{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}.list-card b{color:var(--terracotta);font-size:24px}.empty{padding:22px;color:var(--brown);font-weight:800}.note{background:#fff3dd;padding:12px;border-radius:16px;color:var(--brown);font-weight:800}
+    @media(max-width:980px){.app{grid-template-columns:1fr}.sidebar{position:static;height:auto}.stats,.two-col,.product-form{grid-template-columns:1fr 1fr}}@media(max-width:640px){.main{padding:16px}.top,.panel-head{align-items:stretch;flex-direction:column}.stats,.two-col,.product-form{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <section class="login-screen" id="loginScreen">
+    <form class="login-card" id="loginForm" autocomplete="off">
+      <img src="assets/images/tanu-logo.png" alt="Tanu Papad logo" />
+      <span>Owner Access</span>
+      <h1>Tanu Papad Admin</h1>
+      <p>Products, orders, tracking status and reports manage karne ke liye login karein.</p>
+      <input id="adminUser" name="adminUser" type="text" placeholder="Username" value="admin" autocomplete="username" required />
+      <input id="adminPass" name="adminPass" type="password" placeholder="Password" value="1234" autocomplete="current-password" required />
+      <button class="primary-btn" id="loginBtn" type="submit">Login</button>
+      <button class="primary-btn" id="quickLoginBtn" type="button" style="background:#0f6f72">Quick Demo Login</button>
+      <div class="error" id="loginError">Wrong login. Username: admin, Password: 1234</div>
+      <small>Demo login: <b>admin / 1234</b>. Real hosting se pehle password/backend secure karna hoga.</small>
+    </form>
+  </section>
+
+  <section class="app hidden" id="adminApp">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard"><img src="assets/images/tanu-logo.png" alt="Tanu Papad logo" /><b>Tanu Papad</b><small>Admin Panel</small></a>
+      <nav>
+        <a href="#dashboard" class="active" data-tab="dashboard">Dashboard</a>
+        <a href="#orders" data-tab="orders">Orders</a>
+        <a href="#products" data-tab="products">Products</a>
+        <a href="#reports" data-tab="reports">Reports</a>
+        <a href="index.html" target="_blank">Open Website</a>
+      </nav>
+      <button id="logoutBtn" type="button">Logout</button>
+    </aside>
+
+    <main class="main">
+      <header class="top"><div><span>Private Admin Area</span><h1 id="pageTitle">Dashboard</h1></div><button id="seedOrderBtn" type="button">Create Demo Order</button></header>
+
+      <section class="tab active" id="dashboard"><div class="stats" id="statsGrid"></div><div class="panel two-col"><div><h2>Latest Orders</h2><div id="latestOrders"></div></div><div><h2>Order tracking flow</h2><ol><li>Customer website se order place karega.</li><li>Order admin panel me save hoga.</li><li>Admin status update karega.</li><li>Customer Track Order me Order ID/mobile se status dekhega.</li></ol><p class="note">Note: Ye static demo hai. Real website me backend/database lagega.</p></div></div></section>
+
+      <section class="tab" id="orders"><div class="panel-head"><div><h2>Orders</h2><p>Yahan se status update karein. Website ka Track Order same status dikhayega.</p></div><input id="orderSearch" type="search" placeholder="Search order, customer, mobile" /></div><div class="table-wrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Action</th></tr></thead><tbody id="ordersTable"></tbody></table></div></section>
+
+      <section class="tab" id="products"><div class="panel-head"><div><h2>Products</h2><p>Add/edit product details.</p></div></div><form class="product-form" id="productForm"><input id="productId" type="hidden" /><input id="productName" placeholder="Product name" required /><input id="productCategory" placeholder="Category" required /><input id="productPack" placeholder="Pack size" required /><input id="productPrice" type="number" placeholder="Price" required /><input id="productStock" type="number" placeholder="Stock" value="25" required /><input id="productImage" placeholder="Image URL" /><button type="submit">Save Product</button></form><div class="table-wrap"><table><thead><tr><th>Product</th><th>Category</th><th>Pack</th><th>Price</th><th>Stock</th><th>Action</th></tr></thead><tbody id="productsTable"></tbody></table></div></section>
+
+
+      <section class="tab" id="reports"><div class="stats" id="reportStats"></div><div class="panel"><h2>Best Sellers</h2><div id="bestSellers"></div></div></section>
+    </main>
+  </section>
+
+  <script>
+    (function(){
+      var ADMIN_USER = "admin";
+      var ADMIN_PASS = "1234";
+      var STATUSES = ["Order Placed","Confirmed","Packed","Shipped","Out for Delivery","Delivered","Cancelled"];
+      var defaultProducts = [
+        {id:"urad-250",name:"Urad Papad",category:"Classic",price:130,pack:"250g",stock:25,desc:"Traditional crispy urad papad",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Urad%20Indian%20Papad.jpg"},
+        {id:"masala-250",name:"Masala Papad",category:"Spicy",price:140,pack:"250g",stock:25,desc:"Chatpata masala papad",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Onion%20Masala%20Papad.jpg"},
+        {id:"rice-250",name:"Rice Papad",category:"Light",price:120,pack:"250g",stock:25,desc:"Light and crunchy rice papad",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Rice%20papad.jpg"},
+        {id:"family-combo",name:"Family Combo Pack",category:"Combo",price:399,pack:"3 packs",stock:15,desc:"Best value family combo",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Stack%20of%20papadums.jpg"}
+      ];
+      function $(id){ return document.getElementById(id); }
+      function safeGet(key,fallback){ try{ var v=localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; } }
+      function safeSet(key,value){ try{ localStorage.setItem(key,JSON.stringify(value)); }catch(e){} }
+      function money(amount){ return "₹" + Number(amount || 0).toLocaleString("en-IN"); }
+      function getProducts(){ return safeGet("tanuPapadProducts",defaultProducts).filter(function(p){ return p.category !== "Bulk" && p.id !== "bulk-5kg"; }); }
+      function saveProducts(products){ safeSet("tanuPapadProducts",products.filter(function(p){ return p.category !== "Bulk" && p.id !== "bulk-5kg"; })); }
+      function getOrders(){ return safeGet("tanuPapadOrders",[]); }
+      function saveOrders(orders){ safeSet("tanuPapadOrders",orders); }
+      if(!localStorage.getItem("tanuPapadProducts")){ saveProducts(defaultProducts); } else { saveProducts(getProducts()); }
+      function showApp(){ $("loginScreen").classList.add("hidden"); $("adminApp").classList.remove("hidden"); renderAll(); }
+      function showLogin(){ $("adminApp").classList.add("hidden"); $("loginScreen").classList.remove("hidden"); }
+      function doLogin(){
+        var user = ($("adminUser").value || "").trim().toLowerCase();
+        var pass = ($("adminPass").value || "").trim();
+        if(user === ADMIN_USER && pass === ADMIN_PASS){ try{sessionStorage.setItem("tanuPapadAdminLoggedIn","yes");}catch(e){} $("loginError").classList.remove("show"); showApp(); return true; }
+        $("loginError").classList.add("show"); return false;
+      }
+      document.addEventListener("DOMContentLoaded",function(){
+        try{ if(sessionStorage.getItem("tanuPapadAdminLoggedIn") === "yes") showApp(); else showLogin(); }catch(e){ showLogin(); }
+        $("loginForm").addEventListener("submit",function(e){ e.preventDefault(); doLogin(); });
+        $("quickLoginBtn").addEventListener("click",function(){ $("adminUser").value="admin"; $("adminPass").value="1234"; doLogin(); });
+        $("logoutBtn").addEventListener("click",function(){ try{sessionStorage.removeItem("tanuPapadAdminLoggedIn");}catch(e){} showLogin(); });
+        document.querySelectorAll("[data-tab]").forEach(function(link){ link.addEventListener("click",function(e){ e.preventDefault(); document.querySelectorAll("[data-tab]").forEach(function(a){a.classList.remove("active")}); link.classList.add("active"); document.querySelectorAll(".tab").forEach(function(p){p.classList.remove("active")}); $(link.dataset.tab).classList.add("active"); $("pageTitle").textContent=link.textContent; renderAll(); }); });
+        $("orderSearch").addEventListener("input",renderOrders);
+        $("seedOrderBtn").addEventListener("click",createDemoOrder);
+        $("productForm").addEventListener("submit",saveProductFromForm);
+      });
+      function createDemoOrder(){
+        var orderId="TP" + Date.now().toString().slice(-6);
+        var demo={orderId:orderId,createdAt:new Date().toISOString(),name:"Demo Customer",mobile:"9876543210",email:"demo@example.com",address:"Gwalior, Madhya Pradesh",payment:"COD",items:[{id:"family-combo",name:"Family Combo Pack",pack:"3 packs",price:399,qty:1,lineTotal:399}],subtotal:399,delivery:49,discount:0,total:448,status:"Order Placed",note:"Demo order created from admin panel."};
+        var orders=getOrders(); orders.unshift(demo); saveOrders(orders); renderAll(); alert("Demo order created: " + orderId);
+      }
+      function saveProductFromForm(e){
+        e.preventDefault(); var name=$("productName").value.trim(); var id=$("productId").value || name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"") + "-" + Date.now().toString().slice(-4);
+        var product={id:id,name:name,category:$("productCategory").value.trim(),pack:$("productPack").value.trim(),price:Number($("productPrice").value),stock:Number($("productStock").value),image:$("productImage").value.trim() || "https://commons.wikimedia.org/wiki/Special:FilePath/Stack%20of%20papadums.jpg",desc:"Fresh homemade papad pack."};
+        var products=getProducts(); var idx=products.findIndex(function(p){return p.id===id}); if(idx>=0) products[idx]=Object.assign({},products[idx],product); else products.push(product); saveProducts(products); e.target.reset(); $("productId").value=""; renderAll(); alert("Product saved.");
+      }
+      function renderStats(){
+        var orders=getOrders(), products=getProducts(); var total=orders.filter(function(o){return o.status!=="Cancelled"}).reduce(function(s,o){return s+Number(o.total||0)},0); var pending=orders.filter(function(o){return ["Delivered","Cancelled"].indexOf(o.status)<0}).length; var delivered=orders.filter(function(o){return o.status==="Delivered"}).length; var low=products.filter(function(p){return Number(p.stock||0)<=5}).length;
+        var stats=[["Total Orders",orders.length],["Pending Orders",pending],["Delivered",delivered],["Total Sales",money(total)],["Products",products.length],["Low Stock",low],["COD Orders",orders.filter(function(o){return o.payment==="COD"}).length],["Online/UPI",orders.filter(function(o){return o.payment!=="COD"}).length]];
+        $("statsGrid").innerHTML=stats.slice(0,4).map(function(x){return '<div class="card"><span>'+x[0]+'</span><strong>'+x[1]+'</strong></div>'}).join("");
+        $("reportStats").innerHTML=stats.map(function(x){return '<div class="card"><span>'+x[0]+'</span><strong>'+x[1]+'</strong></div>'}).join("");
+      }
+      function renderLatestOrders(){ var latest=getOrders().slice(0,5); $("latestOrders").innerHTML = latest.length ? latest.map(function(o){return '<div class="list-card"><b>'+o.orderId+'</b><span>'+o.name+' • '+money(o.total)+' • '+o.status+'</span></div>'}).join("") : '<div class="empty">No orders yet. Website se order place karein ya demo order create karein.</div>'; }
+      function renderOrders(){
+        var search=($("orderSearch").value || "").trim().toLowerCase(); var orders=getOrders().filter(function(o){return [o.orderId,o.name,o.mobile,o.status].join(" ").toLowerCase().indexOf(search)>=0});
+        $("ordersTable").innerHTML = orders.length ? orders.map(function(o){ return '<tr><td><span class="order-id">'+o.orderId+'</span><br><small>'+new Date(o.createdAt).toLocaleString()+'</small></td><td>'+o.name+'<br><small>'+o.mobile+'<br>'+(o.address||'')+'</small></td><td>'+(o.items||[]).map(function(i){return i.name+' x '+i.qty+(i.custom ? ' ('+i.custom+')' : '')}).join('<br>')+'</td><td>'+money(o.total)+'</td><td>'+o.payment+'</td><td><select class="status-select" onchange="window.updateOrderStatus(\''+o.orderId+'\', this.value)">'+STATUSES.map(function(s){return '<option value="'+s+'" '+(s===o.status?'selected':'')+'>'+s+'</option>'}).join('')+'</select></td><td><button class="action-btn" onclick="window.copyOrder(\''+o.orderId+'\')">Copy</button><button class="action-btn red" onclick="window.deleteOrder(\''+o.orderId+'\')">Delete</button></td></tr>'; }).join("") : '<tr><td colspan="7" class="empty">No orders found.</td></tr>';
+      }
+      function renderProducts(){ var products=getProducts(); $("productsTable").innerHTML=products.map(function(p){return '<tr><td><b>'+p.name+'</b><br><small>'+(p.desc||'')+'</small></td><td>'+p.category+'</td><td>'+p.pack+'</td><td>'+money(p.price)+'</td><td>'+(p.stock||0)+'</td><td><button class="action-btn" onclick="window.editProduct(\''+p.id+'\')">Edit</button><button class="action-btn red" onclick="window.deleteProduct(\''+p.id+'\')">Delete</button></td></tr>'}).join(""); }
+      function renderBestSellers(){ var counts={}; getOrders().forEach(function(o){(o.items||[]).forEach(function(i){counts[i.name]=(counts[i.name]||0)+Number(i.qty||0)})}); var rows=Object.entries(counts).sort(function(a,b){return b[1]-a[1]}); $("bestSellers").innerHTML=rows.length ? rows.map(function(x){return '<div class="list-card"><b>'+x[0]+'</b><span>'+x[1]+' units sold</span></div>'}).join("") : '<div class="empty">Orders aane ke baad report dikhegi.</div>'; }
+      function renderAll(){ renderStats(); renderLatestOrders(); renderOrders(); renderProducts(); renderBestSellers(); }
+      window.updateOrderStatus=function(orderId,status){ var orders=getOrders().map(function(o){return o.orderId===orderId ? Object.assign({},o,{status:status,note:"Status updated by Tanu Papad team."}) : o}); saveOrders(orders); renderAll(); };
+      window.copyOrder=function(orderId){ var o=getOrders().find(function(x){return x.orderId===orderId}); if(!o) return; var text='Order '+o.orderId+'\nCustomer: '+o.name+'\nMobile: '+o.mobile+'\nTotal: '+money(o.total)+'\nStatus: '+o.status+'\nCustomization: '+(o.customization || 'Regular')+'\nSpecial note: '+(o.specialNote || 'None'); if(navigator.clipboard) navigator.clipboard.writeText(text); alert('Order copied.'); };
+      window.deleteOrder=function(orderId){ if(!confirm('Delete this order?')) return; saveOrders(getOrders().filter(function(o){return o.orderId!==orderId})); renderAll(); };
+      window.editProduct=function(id){ var p=getProducts().find(function(x){return x.id===id}); if(!p) return; $("productId").value=p.id; $("productName").value=p.name; $("productCategory").value=p.category; $("productPack").value=p.pack; $("productPrice").value=p.price; $("productStock").value=p.stock||0; $("productImage").value=p.image||""; document.querySelector('[data-tab="products"]').click(); window.scrollTo({top:0,behavior:'smooth'}); };
+      window.deleteProduct=function(id){ if(!confirm('Delete this product?')) return; saveProducts(getProducts().filter(function(p){return p.id!==id})); renderAll(); };
+    })();
+  </script>
+</body>
+</html>

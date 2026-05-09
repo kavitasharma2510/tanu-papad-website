@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanu Papad | Fresh Homemade Papad From Gwalior</title>
+  <meta name="description" content="Order fresh homemade papad from Gwalior. Shop urad papad, masala papad, rice papad and combo packs online." />
+  <link rel="preconnect" href="https://commons.wikimedia.org" />
+  <link rel="preload" as="image" href="assets/images/tanu-logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-strip">
+    <p data-i18n="topStrip">Fresh Homemade Papad • WhatsApp Orders Available • COD Available</p>
+  </div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Tanu Papad home">
+      <img class="brand-logo" src="assets/images/tanu-logo.png" alt="Tanu Papad logo" />
+      <span><strong>Tanu Papad</strong><small data-i18n="brandSub">Proudly from Gwalior</small></span>
+    </a>
+    <div class="header-actions">
+      <button class="lang-pill" id="languageToggle" type="button" aria-label="Change language">हिंदी</button>
+      <button class="track-pill" id="headerTrackBtn" type="button" data-i18n="trackOrder">Track Order</button>
+      <button class="cart-pill" id="openCartBtn" type="button">Cart <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow" data-i18n="heroEyebrow">Traditional • Crispy • Premium</span>
+        <h1 data-i18n="heroTitle">Fresh homemade papad delivered to your doorstep.</h1>
+        <p data-i18n="heroText">Tanu Papad brings Gwalior-style fresh, crispy and tasty papad for daily meals, snacks, hotels, shops and family functions.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#shop" data-i18n="shopNow">Shop Now</a>
+          <a class="btn secondary" href="https://wa.me/917067791424" target="_blank" rel="noreferrer" data-i18n="orderWhatsapp">Order on WhatsApp</a>
+        </div>
+        <div class="trust-grid" aria-label="Trust highlights">
+          <div><strong>250g - 1kg</strong><span data-i18n="packSizes">Pack sizes</span></div>
+          <div><strong data-i18n="days56">5-6 Days</strong><span data-i18n="madeDelivery">Made + delivery</span></div>
+          <div><strong data-i18n="custom">Custom</strong><span data-i18n="tasteOptions">Taste options</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="hero-logo" src="assets/images/tanu-logo.png" alt="Tanu Papad brand logo" />
+        <img class="hero-product" src="https://commons.wikimedia.org/wiki/Special:FilePath/Stack%20of%20papadums.jpg" alt="Stack of fresh papad" />
+        <div class="hero-card">
+          <b data-i18n="bestSeller">Best Seller</b>
+          <span data-i18n="heroBestSeller">Family Combo Pack ₹399</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shop-section" id="shop">
+      <div class="section-title split">
+        <div>
+          <span data-i18n="onlineShop">Online Shop</span>
+          <h2 data-i18n="freshPacks">Fresh papad packs</h2>
+        </div>
+        <div class="shop-tools compact-tools">
+          <input id="searchInput" type="search" placeholder="Search papad..." data-placeholder="searchPlaceholder" />
+          <select id="categoryFilter" aria-label="Filter products">
+            <option value="All">All products</option>
+            <option value="Classic">Classic</option>
+            <option value="Spicy">Masala</option>
+            <option value="Light">Rice</option>
+            <option value="Combo">Combo</option>
+          </select>
+          <select id="globalTaste" aria-label="Taste customize">
+            <option>Regular taste</option>
+            <option>Mild spicy</option>
+            <option>Medium spicy</option>
+            <option>Extra spicy</option>
+            <option>Less salt</option>
+          </select>
+          <select id="globalIngredient" aria-label="Ingredients customize">
+            <option>Normal ingredients</option>
+            <option>No extra chilli</option>
+            <option>More ajwain</option>
+            <option>Less salt</option>
+            <option>Extra masala</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+
+
+    <section class="section story" id="about">
+      <div class="story-text">
+        <span data-i18n="aboutTitle">About Tanu Papad</span>
+        <h2 data-i18n="aboutHeading">A local taste inspired by Gwalior heritage.</h2>
+        <p data-i18n="aboutText">Tanu Papad is made for homes that love simple, crispy and traditional taste. We focus on fresh packing, clean handling and flavours that work with everyday Indian meals.</p>
+        <ul>
+          <li data-i18n="aboutLi1">Traditional recipe and crispy texture</li>
+          <li data-i18n="aboutLi2">Fresh packing for every batch</li>
+          <li data-i18n="aboutLi3">Available for homes, shops, hotels and events</li>
+        </ul>
+      </div>
+      <div class="story-images">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gwalior-Fort.jpg" alt="Gwalior Fort" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Onion%20Masala%20Papad.jpg" alt="Masala papad serving idea" />
+      </div>
+    </section>
+
+    <section class="section reviews">
+      <div class="section-title">
+        <span data-i18n="reviewsTitle">Customer Reviews</span>
+        <h2 data-i18n="reviewsHeading">Trust-building testimonials</h2>
+      </div>
+      <div class="review-grid">
+        <blockquote>“Crispy and fresh. Masala papad is perfect for evening snacks.”<cite>— Priya S.</cite></blockquote>
+        <blockquote>“Good packing and fast local delivery. Family combo is value for money.”<cite>— Rahul G.</cite></blockquote>
+        <blockquote>“Fresh taste and simple ordering. WhatsApp confirmation was quick.”<cite>— Local Customer</cite></blockquote>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="contact">
+    <div>
+      <h3>Tanu Papad</h3>
+      <p data-i18n="footerText">Fresh homemade papad from Gwalior with authentic Indian taste.</p>
+    </div>
+    <div>
+      <b data-i18n="contact">Contact</b>
+      <p>Phone: +91 7067791424</p>
+      <p>WhatsApp: +91 7067791424</p>
+      <p>Email: orders@tanupapad.com</p>
+    </div>
+    <div>
+      <b data-i18n="quickLinks">Quick Links</b>
+      <a href="#shop" data-i18n="shop">Shop</a>
+      <a href="#about" data-i18n="about">About</a>
+    </div>
+  </footer>
+
+  <div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-panel wide-cart-panel">
+      <div class="cart-head">
+        <h2 data-i18n="yourCart">Your Cart</h2>
+        <button id="closeCartBtn" type="button">×</button>
+      </div>
+      <div class="cart-layout">
+        <div class="cart-left">
+          <div id="cartItems" class="cart-items"></div>
+          <div class="cart-bottom">
+            <div class="summary-row"><span data-i18n="subtotal">Subtotal</span><b id="cartSubtotal">₹0</b></div>
+            <div class="summary-row"><span data-i18n="deliveryCharges">Delivery Charges</span><b id="cartDelivery">₹0</b></div>
+            <div class="summary-row total"><span data-i18n="total">Total</span><b id="cartTotal">₹0</b></div>
+            <p class="delivery-note" data-i18n-html="deliveryNote">Estimated total making + delivery time: <b>5-6 days</b>.</p>
+            <button class="btn primary full" type="button" id="checkoutBtn" data-i18n="placeOrder">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+    <div class="checkout-popup">
+      <div class="cart-head">
+        <h2 data-i18n="placeYourOrder">Place your order</h2>
+        <button id="closeCheckoutBtn" type="button">×</button>
+      </div>
+      <div class="checkout-grid">
+        <form class="checkout-form" id="checkoutForm">
+          <div class="two-col">
+            <label><span data-i18n="name">Name</span><input id="customerName" type="text" placeholder="Your full name" data-placeholder="namePlaceholder" required /></label>
+            <label><span data-i18n="mobile">Mobile</span><input id="customerMobile" type="tel" placeholder="10 digit mobile number" data-placeholder="mobilePlaceholder" required /></label>
+          </div>
+          <label><span data-i18n="emailOptional">Email optional</span><input id="customerEmail" type="email" placeholder="you@example.com" data-placeholder="emailPlaceholder" /></label>
+          <div class="three-col address-grid">
+            <label><span data-i18n="pincode">Pincode</span><input id="customerPincode" type="text" inputmode="numeric" maxlength="6" placeholder="Enter 6 digit pincode" data-placeholder="pincodePlaceholder" required /></label>
+            <label><span data-i18n="city">City</span><input id="customerCity" type="text" placeholder="Auto-filled city" data-placeholder="cityPlaceholder" required /></label>
+            <label><span data-i18n="state">State</span><input id="customerState" type="text" placeholder="Auto-filled state" data-placeholder="statePlaceholder" required /></label>
+          </div>
+          <p class="pincode-status" id="pincodeStatus" data-i18n="pincodeInfo">City/state will auto-fill after valid pincode. You can edit it if needed.</p>
+          <label><span data-i18n="deliveryAddress">Delivery Address</span><textarea id="customerAddress" placeholder="House no, street, area, landmark" data-placeholder="addressPlaceholder" required></textarea></label>
+          <div class="two-col">
+            <label><span data-i18n="payment">Payment</span><select id="paymentMethod"><option value="Cash on Delivery">Cash on Delivery</option><option value="GPay">GPay</option><option value="PhonePe">PhonePe</option><option value="Paytm">Paytm</option></select></label>
+            <label><span data-i18n="deliveryTime">Delivery Time</span><input value="5-6 days total" data-value="deliveryTimeValue" readonly /></label>
+          </div>
+          <div class="payment-info-box" id="paymentInfoBox" aria-live="polite"></div>
+          <label><span data-i18n="specialOptional">Special Instructions optional</span><input id="specialNote" type="text" placeholder="Example: gift packing, call before delivery" data-placeholder="specialPlaceholder" /></label>
+          <button class="btn primary full" type="submit" data-i18n="placeWhatsapp">Place Order on WhatsApp</button>
+        </form>
+        <aside class="order-summary">
+          <h3 data-i18n="orderSummary">Order Summary</h3>
+          <div id="summaryItems" class="summary-items"></div>
+          <div class="summary-row"><span data-i18n="subtotal">Subtotal</span><b id="subtotal">₹0</b></div>
+          <div class="summary-row"><span data-i18n="deliveryCharges">Delivery Charges</span><b id="deliveryFee">₹0</b></div>
+          <div class="summary-row total"><span data-i18n="total">Total</span><b id="grandTotal">₹0</b></div>
+          <small data-i18n="summaryNote">Selected taste/ingredients cart items ke saath WhatsApp message me jayenge.</small>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-modal" id="trackModal" aria-hidden="true">
+    <div class="track-popup">
+      <div class="cart-head">
+        <h2 data-i18n="trackOrder">Track Order</h2>
+        <button id="closeTrackBtn" type="button">×</button>
+      </div>
+      <p class="track-modal-help" data-i18n="trackHelp">Order ID or mobile number se status dekhein.</p>
+      <form id="mainTrackForm" class="standalone-track-form">
+        <input id="mainTrackInput" type="text" placeholder="Order ID / mobile" data-placeholder="trackPlaceholder" required />
+        <button class="btn primary" type="submit" data-i18n="track">Track</button>
+      </form>
+      <div id="mainTrackResult" class="main-track-result"></div>
+    </div>
+  </div>
+
+  <div class="order-success-modal" id="orderSuccessModal" aria-hidden="true">
+    <div class="order-success-card">
+      <button class="success-close" id="closeSuccessBtn" type="button">×</button>
+      <span class="eyebrow" data-i18n="orderSaved">Order Saved</span>
+      <h2 data-i18n="thankYou">Thank you! Your order is placed.</h2>
+      <p data-i18n="trackingIdIs">Your tracking ID is:</p>
+      <strong id="successOrderId">TP000000</strong>
+      <p class="success-note" data-i18n="successNote">Is ID ko save kar lijiye. Track Order button se status dekh sakte hain. Delivery + making time: 5-6 days.</p>
+      <div class="success-actions">
+        <button class="btn primary" id="successTrackBtn" type="button" data-i18n="trackThisOrder">Track This Order</button>
+        <a class="btn secondary" href="https://wa.me/917067791424" target="_blank" rel="noreferrer" data-i18n="openWhatsapp">Open WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="wa-float" href="https://wa.me/917067791424" target="_blank" rel="noreferrer">WhatsApp</a>
+  <script src="script.js"></script>
+</body>
+</html>
