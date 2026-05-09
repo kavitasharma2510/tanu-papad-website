@@ -1,0 +1,38 @@
+[
+  {
+    "id": "urad-250",
+    "name": "Urad Papad",
+    "category": "Classic",
+    "price": 130,
+    "pack": "250g",
+    "stock": 25,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Urad%20Indian%20Papad.jpg"
+  },
+  {
+    "id": "masala-250",
+    "name": "Masala Papad",
+    "category": "Spicy",
+    "price": 140,
+    "pack": "250g",
+    "stock": 25,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Onion%20Masala%20Papad.jpg"
+  },
+  {
+    "id": "rice-250",
+    "name": "Rice Papad",
+    "category": "Light",
+    "price": 120,
+    "pack": "250g",
+    "stock": 25,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rice%20papad.jpg"
+  },
+  {
+    "id": "family-combo",
+    "name": "Family Combo Pack",
+    "category": "Combo",
+    "price": 399,
+    "pack": "3 packs",
+    "stock": 15,
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Stack%20of%20papadums.jpg"
+  }
+]
